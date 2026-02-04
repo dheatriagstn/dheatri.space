@@ -12,7 +12,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #dfeee3, #c8e2d1);
+            background: linear-gradient(135deg, #b7d7b0, #9fc7a3);
             font-family: "Times New Roman", serif;
             text-align: center;
             color: #4b3b2f;
@@ -22,77 +22,103 @@
         .container {
             z-index: 2;
             animation: fadeIn 2s ease-in-out;
-            padding: 20px;
+            padding: 24px;
+            max-width: 800px;
         }
 
+        /* SHINY COMING SOON */
         h1 {
-            font-size: 60px;
+            font-size: 64px;
             margin: 0;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
+            position: relative;
+            color: #4b3b2f;
+            background: linear-gradient(
+                120deg,
+                #4b3b2f 30%,
+                #fff2d8 45%,
+                #4b3b2f 60%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: -200% center;
+            }
         }
 
         p {
             font-size: 20px;
-            margin-top: 20px;
-            line-height: 1.6;
+            margin-top: 24px;
+            line-height: 1.7;
             color: #5e4b3a;
         }
 
         .countdown {
-            margin-top: 30px;
+            margin-top: 36px;
             display: flex;
             justify-content: center;
             gap: 20px;
         }
 
         .time-box {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 15px 20px;
-            border-radius: 12px;
-            min-width: 80px;
+            background: rgba(255, 255, 255, 0.55);
+            padding: 16px 22px;
+            border-radius: 14px;
+            min-width: 90px;
             backdrop-filter: blur(6px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         }
 
         .time-box span {
             display: block;
-            font-size: 32px;
+            font-size: 34px;
             font-weight: bold;
         }
 
         .time-box small {
             font-size: 14px;
+            letter-spacing: 1px;
         }
 
-        /* Fade Animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(25px); }
+            from { opacity: 0; transform: translateY(28px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Sparkle / Light Effect */
+        /* SPARKLE / LIGHT */
         .sparkle {
             position: absolute;
             width: 6px;
             height: 6px;
-            background: rgba(255, 255, 255, 0.8);
+            background: radial-gradient(circle, #ffffff, transparent);
             border-radius: 50%;
+            opacity: 0.7;
             animation: sparkle 3s infinite ease-in-out;
         }
 
         @keyframes sparkle {
             0%, 100% {
+                transform: scale(0.4);
                 opacity: 0.2;
-                transform: scale(0.5);
             }
             50% {
-                opacity: 0.9;
                 transform: scale(1.4);
+                opacity: 0.9;
             }
         }
 
         @media (max-width: 600px) {
             h1 {
-                font-size: 42px;
+                font-size: 44px;
+            }
+
+            p {
+                font-size: 18px;
             }
 
             .countdown {
@@ -105,34 +131,35 @@
 
     <div class="container">
         <h1>COMING SOON</h1>
+
         <p>
-            Website Perpustakaan Dhea Tri Agustina sedang dalam tahap pengembangan.<br>
-            Nantikan kehadirannya untuk menemani kebutuhan harian kalian.
+            Sebuah ruang baca sedang dipersiapkan dengan penuh perhatian dan makna.<br>
+            Semoga kelak kehadirannya menjadi tempat yang hangat untuk menemani hari-hari kalian.
         </p>
 
         <div class="countdown">
             <div class="time-box">
                 <span id="days">00</span>
-                <small>Hari</small>
+                <small>HARI</small>
             </div>
             <div class="time-box">
                 <span id="hours">00</span>
-                <small>Jam</small>
+                <small>JAM</small>
             </div>
             <div class="time-box">
                 <span id="minutes">00</span>
-                <small>Menit</small>
+                <small>MENIT</small>
             </div>
             <div class="time-box">
                 <span id="seconds">00</span>
-                <small>Detik</small>
+                <small>DETIK</small>
             </div>
         </div>
     </div>
 
     <script>
         /* Sparkle generator */
-        for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 35; i++) {
             const sparkle = document.createElement("div");
             sparkle.className = "sparkle";
             sparkle.style.top = Math.random() * 100 + "vh";
