@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coming Soon - Dhea's Spaces</title>
+
     <style>
         body {
             margin: 0;
@@ -11,38 +12,157 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #ffffff, #f6b1c3);
-            font-family: "Times New Roman", Times, serif;
+            background: linear-gradient(135deg, #dfeee3, #c8e2d1);
+            font-family: "Times New Roman", serif;
             text-align: center;
-            color: white;
+            color: #4b3b2f;
+            overflow: hidden;
         }
 
         .container {
+            z-index: 2;
             animation: fadeIn 2s ease-in-out;
+            padding: 20px;
         }
 
         h1 {
             font-size: 60px;
             margin: 0;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
         }
 
         p {
             font-size: 20px;
             margin-top: 20px;
+            line-height: 1.6;
+            color: #5e4b3a;
         }
 
+        .countdown {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px 20px;
+            border-radius: 12px;
+            min-width: 80px;
+            backdrop-filter: blur(6px);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .time-box small {
+            font-size: 14px;
+        }
+
+        /* Fade Animation */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(25px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sparkle / Light Effect */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: sparkle 3s infinite ease-in-out;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0.2;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 0.9;
+                transform: scale(1.4);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 42px;
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>COMING SOON</h1>
-        <p>Perpustakaan Dhea sedang dalam tahap pengembangan lebih lanjut.<br>
-        Nantikan hadirnya untuk memenuhi kebutuhan sehari-hari bagi kalian yang membutuhkan.</p>
+        <p>
+            Website Perpustakaan Dhea Tri Agustina sedang dalam tahap pengembangan.<br>
+            Nantikan kehadirannya untuk menemani kebutuhan harian kalian.
+        </p>
+
+        <div class="countdown">
+            <div class="time-box">
+                <span id="days">00</span>
+                <small>Hari</small>
+            </div>
+            <div class="time-box">
+                <span id="hours">00</span>
+                <small>Jam</small>
+            </div>
+            <div class="time-box">
+                <span id="minutes">00</span>
+                <small>Menit</small>
+            </div>
+            <div class="time-box">
+                <span id="seconds">00</span>
+                <small>Detik</small>
+            </div>
+        </div>
     </div>
+
+    <script>
+        /* Sparkle generator */
+        for (let i = 0; i < 30; i++) {
+            const sparkle = document.createElement("div");
+            sparkle.className = "sparkle";
+            sparkle.style.top = Math.random() * 100 + "vh";
+            sparkle.style.left = Math.random() * 100 + "vw";
+            sparkle.style.animationDelay = Math.random() * 3 + "s";
+            document.body.appendChild(sparkle);
+        }
+
+        /* Countdown 1 bulan */
+        const launchDate = new Date();
+        launchDate.setMonth(launchDate.getMonth() + 1);
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days;
+            document.getElementById("hours").innerText = hours;
+            document.getElementById("minutes").innerText = minutes;
+            document.getElementById("seconds").innerText = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
 </body>
 </html>
