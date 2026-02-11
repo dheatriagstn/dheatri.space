@@ -1,195 +1,269 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Dhea's Spaces</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>D'Space | Public Reading Room</title>
 
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #b7d7b0, #9fc7a3);
-            font-family: "Times New Roman", serif;
-            text-align: center;
-            color: #4b3b2f;
-            overflow: hidden;
-        }
+<style>
 
-        .container {
-            z-index: 2;
-            animation: fadeIn 2s ease-in-out;
-            padding: 24px;
-            max-width: 800px;
-        }
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* SHINY COMING SOON */
-        h1 {
-            font-size: 64px;
-            margin: 0;
-            letter-spacing: 5px;
-            position: relative;
-            color: #4b3b2f;
-            background: linear-gradient(
-                120deg,
-                #4b3b2f 30%,
-                #fff2d8 45%,
-                #4b3b2f 60%
-            );
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 4s linear infinite;
-        }
+body {
+    font-family: "Times New Roman", serif;
+    background: #ffffff;
+    color: #4b3b2f;
+}
 
-        @keyframes shine {
-            to {
-                background-position: -200% center;
-            }
-        }
+/* ================= NAVBAR ================= */
 
-        p {
-            font-size: 20px;
-            margin-top: 24px;
-            line-height: 1.7;
-            color: #5e4b3a;
-        }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 80px;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+}
 
-        .countdown {
-            margin-top: 36px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
+.logo {
+    font-size: 24px;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
 
-        .time-box {
-            background: rgba(255, 255, 255, 0.55);
-            padding: 16px 22px;
-            border-radius: 14px;
-            min-width: 90px;
-            backdrop-filter: blur(6px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
+nav a {
+    margin-left: 30px;
+    text-decoration: none;
+    color: #4b3b2f;
+    font-size: 16px;
+}
 
-        .time-box span {
-            display: block;
-            font-size: 34px;
-            font-weight: bold;
-        }
+nav a:hover {
+    opacity: 0.7;
+}
 
-        .time-box small {
-            font-size: 14px;
-            letter-spacing: 1px;
-        }
+/* ================= HERO ================= */
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(28px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+.hero {
+    background: #4b3b2f;
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    position: relative;
+}
 
-        /* SPARKLE / LIGHT */
-        .sparkle {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: radial-gradient(circle, #ffffff, transparent);
-            border-radius: 50%;
-            opacity: 0.7;
-            animation: sparkle 3s infinite ease-in-out;
-        }
+.hero h1 {
+    font-size: 64px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+}
 
-        @keyframes sparkle {
-            0%, 100% {
-                transform: scale(0.4);
-                opacity: 0.2;
-            }
-            50% {
-                transform: scale(1.4);
-                opacity: 0.9;
-            }
-        }
+.hero p {
+    font-size: 20px;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+}
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 44px;
-            }
+/* COUNTDOWN */
 
-            p {
-                font-size: 18px;
-            }
+.countdown {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
 
-            .countdown {
-                flex-wrap: wrap;
-            }
-        }
-    </style>
+.time-box {
+    background: white;
+    color: #4b3b2f;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 100px;
+}
+
+.time-box span {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.time-box small {
+    font-size: 14px;
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+    padding: 100px 80px;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+/* ================= FEATURES ================= */
+
+.features {
+    padding: 100px 80px;
+    background: #f8f5f2;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #4b3b2f;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px){
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header {
+        padding: 20px 30px;
+    }
+
+    .about, .features {
+        padding: 60px 30px;
+    }
+}
+
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>COMING SOON</h1>
+<header>
+    <div class="logo">D'SPACE</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Collection</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
 
-        <p>
-            Sebuah ruang baca sedang dipersiapkan dengan penuh perhatian dan makna.<br>
-            Semoga kelak kehadirannya menjadi tempat yang hangat untuk menemani hari-hari kalian.
-        </p>
+<section class="hero">
+    <h1>COMING SOON</h1>
+    <p>
+        Sebuah ruang baca sedang dipersiapkan dengan penuh perhatian dan makna.
+        Kami percaya ruang ini akan menjadi tempat yang tenang dan hangat
+        untuk bertumbuh bersama.
+    </p>
 
-        <div class="countdown">
-            <div class="time-box">
-                <span id="days">00</span>
-                <small>HARI</small>
-            </div>
-            <div class="time-box">
-                <span id="hours">00</span>
-                <small>JAM</small>
-            </div>
-            <div class="time-box">
-                <span id="minutes">00</span>
-                <small>MENIT</small>
-            </div>
-            <div class="time-box">
-                <span id="seconds">00</span>
-                <small>DETIK</small>
-            </div>
+    <div class="countdown">
+        <div class="time-box">
+            <span id="days">00</span>
+            <small>HARI</small>
+        </div>
+        <div class="time-box">
+            <span id="hours">00</span>
+            <small>JAM</small>
+        </div>
+        <div class="time-box">
+            <span id="minutes">00</span>
+            <small>MENIT</small>
+        </div>
+        <div class="time-box">
+            <span id="seconds">00</span>
+            <small>DETIK</small>
         </div>
     </div>
+</section>
 
-    <script>
-        /* Sparkle generator */
-        for (let i = 0; i < 35; i++) {
-            const sparkle = document.createElement("div");
-            sparkle.className = "sparkle";
-            sparkle.style.top = Math.random() * 100 + "vh";
-            sparkle.style.left = Math.random() * 100 + "vw";
-            sparkle.style.animationDelay = Math.random() * 3 + "s";
-            document.body.appendChild(sparkle);
-        }
+<section class="about">
+    <h2>About D'Space</h2>
+    <p>
+        D’Space adalah ruang baca publik yang dirancang untuk menghadirkan
+        ketenangan, refleksi, dan pengalaman membaca yang bermakna.
+        Kami mengkurasi koleksi dengan penuh perhatian untuk
+        mendukung pembelajaran dan pertumbuhan pribadi.
+    </p>
+</section>
 
-        /* Countdown 1 bulan */
-        const launchDate = new Date();
-        launchDate.setMonth(launchDate.getMonth() + 1);
+<section class="features">
+    <div class="card">
+        <h3>Curated Collection</h3>
+        <p>Buku pilihan dengan kualitas dan relevansi terbaik.</p>
+    </div>
+    <div class="card">
+        <h3>Quiet Environment</h3>
+        <p>Atmosfer tenang untuk membaca dan berpikir.</p>
+    </div>
+    <div class="card">
+        <h3>Community Events</h3>
+        <p>Diskusi, kelas kecil, dan kegiatan literasi.</p>
+    </div>
+</section>
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = launchDate - now;
+<footer>
+    © 2026 D'Space Public Reading Room
+</footer>
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+<script>
 
-            document.getElementById("days").innerText = days;
-            document.getElementById("hours").innerText = hours;
-            document.getElementById("minutes").innerText = minutes;
-            document.getElementById("seconds").innerText = seconds;
-        }
+/* COUNTDOWN 1 bulan */
+const launchDate = new Date();
+launchDate.setMonth(launchDate.getMonth() + 1);
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = launchDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+</script>
 
 </body>
 </html>
